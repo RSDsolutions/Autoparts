@@ -49,9 +49,9 @@ const CatalogScreen = () => {
       {/* Catalog hero header */}
       <section className="carbon" style={{padding: 'clamp(32px,5vw,64px) clamp(16px,4vw,56px) 0', borderBottom: '1px solid var(--line)'}}>
         <div className="eyebrow" style={{color: 'var(--red)', marginBottom: 14}}>// CATÁLOGO COMPLETO</div>
-        <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', marginBottom: 32}}>
-          <h1 className="section-title" style={{fontSize: 64}}>Repuestos</h1>
-          <div className="mono" style={{fontSize: 12, color: 'var(--gray-400)', letterSpacing: '0.15em'}}>
+        <div className="cat-title-row" style={{marginBottom: 32}}>
+          <h1 className="section-title" style={{fontSize: 'clamp(36px,6vw,64px)'}}>Repuestos</h1>
+          <div className="mono" style={{fontSize: 12, color: 'var(--gray-400)', letterSpacing: '0.15em', flexShrink: 0}}>
             {sorted.length} / {allProducts.length} REFERENCIAS
           </div>
         </div>
@@ -63,10 +63,10 @@ const CatalogScreen = () => {
               <circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/>
             </svg>
           </div>
-          <input className="input" style={{border: 'none', flex: 1, fontSize: 16, padding: '20px 0'}}
-                 placeholder="Busca por nombre, modelo o marca... (ej. pastillas Kia Sportage)"
+          <input className="input" style={{border: 'none', flex: 1, fontSize: 16, padding: '20px 0', minWidth: 0}}
+                 placeholder="Busca por nombre, modelo o marca..."
                  value={search} onChange={e => setSearch(e.target.value)} />
-          <button className="btn btn-red" style={{borderRadius: 0, padding: '0 32px'}} onClick={() => {}}>Buscar</button>
+          <button className="btn btn-red search-submit" onClick={() => {}}>Buscar</button>
         </div>
 
         {/* Quick chips */}
@@ -184,8 +184,8 @@ const CatalogScreen = () => {
         {/* PRODUCTS AREA */}
         <main>
           {/* sort row */}
-          <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '14px 20px', border: '1px solid var(--line)', background: 'var(--black-3)', marginBottom: 20}}>
-            <div style={{display: 'flex', alignItems: 'center', gap: 14}}>
+          <div className="sort-row">
+            <div className="sort-left">
               <span className="mono" style={{fontSize: 12, color: 'var(--gray-300)', letterSpacing: '0.12em'}}>
                 {sorted.length} RESULTADOS
               </span>
@@ -198,7 +198,7 @@ const CatalogScreen = () => {
                 ))}
               </div>
             </div>
-            <div style={{display: 'flex', alignItems: 'center', gap: 14}}>
+            <div className="sort-right">
               <span className="label" style={{margin: 0}}>Ordenar:</span>
               <div style={{display: 'flex', border: '1px solid var(--line-2)'}}>
                 {['Disponibilidad', 'Precio', 'Nombre'].map(s => (
@@ -222,7 +222,7 @@ const CatalogScreen = () => {
               <p style={{color: 'var(--gray-400)', fontSize: 14}}>Prueba con otros filtros o <a href={waLink('Hola, busco un repuesto específico.')} target="_blank" rel="noopener noreferrer" style={{color: 'var(--green)', textDecoration: 'none'}}>consúltanos por WhatsApp</a>.</p>
             </div>
           ) : (
-            <div className="rg-3" style={{gap: 20}}>
+            <div className="rg-4" style={{gap: 20}}>
               {sorted.map((p, i) => (
                 <div key={i} className="product">
                   <div className="product-img" onClick={() => window.navigate('product')} style={{cursor: 'pointer'}}>

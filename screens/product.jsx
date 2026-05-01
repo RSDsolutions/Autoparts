@@ -45,8 +45,8 @@ const ProductScreen = () => {
       <Navbar active="Catálogo" />
 
       {/* Breadcrumb */}
-      <div style={{padding: '20px 56px', borderBottom: '1px solid var(--line)', background: 'var(--black-2)'}}>
-        <div className="mono" style={{fontSize: 11, color: 'var(--gray-400)', letterSpacing: '0.12em'}}>
+      <div className="breadcrumb-bar">
+        <div className="mono" style={{fontSize: 11, color: 'var(--gray-400)', letterSpacing: '0.12em', whiteSpace: 'nowrap'}}>
           <span style={{cursor: 'pointer'}} onClick={() => window.navigate('home')}>INICIO</span>
           &nbsp;/&nbsp;
           <span style={{cursor: 'pointer'}} onClick={() => window.navigate('catalog')}>CATÁLOGO</span>
@@ -82,7 +82,7 @@ const ProductScreen = () => {
             </div>
           </div>
           {/* Thumbs */}
-          <div style={{display: 'grid', gridTemplateColumns: 'repeat(5, 1fr)', gap: 10, marginTop: 16}}>
+          <div className="thumb-grid">
             {product.images.map((img, i) => (
               <div key={i} onClick={() => setSelImg(i)} style={{
                 aspectRatio: '1',
@@ -107,11 +107,11 @@ const ProductScreen = () => {
             </div>
           </div>
 
-          <h1 style={{fontFamily: 'Space Grotesk', fontWeight: 700, fontSize: 42, lineHeight: 1.05, letterSpacing: '-0.005em', textTransform: 'uppercase', marginBottom: 18}}>
+          <h1 style={{fontFamily: 'Space Grotesk', fontWeight: 700, fontSize: 'clamp(24px,4vw,42px)', lineHeight: 1.05, letterSpacing: '-0.005em', textTransform: 'uppercase', marginBottom: 18}}>
             {product.name}
           </h1>
 
-          <div style={{display: 'flex', alignItems: 'baseline', gap: 12, marginBottom: 24}}>
+          <div className="price-row">
             <span className="mono" style={{fontSize: 14, color: 'var(--gray-500)', textDecoration: 'line-through'}}>${product.listPrice.toFixed(2)}</span>
             <span className="plate plate-red" style={{padding: '4px 8px'}}>-24% AHORRO</span>
             <div style={{display: 'flex', alignItems: 'baseline', gap: 4, marginLeft: 8}}>
