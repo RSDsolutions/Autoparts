@@ -28,7 +28,7 @@ const ContactScreen = () => {
       </section>
 
       {/* Two column */}
-      <section style={{padding: '80px 56px', display: 'grid', gridTemplateColumns: '1fr 1.2fr', gap: 56}}>
+      <section className="rg-contact" style={{padding: 'clamp(32px,5vw,80px) clamp(16px,4vw,56px)', gap: 'clamp(24px,4vw,56px)'}}>
         {/* LEFT */}
         <div>
           {/* Big WA */}

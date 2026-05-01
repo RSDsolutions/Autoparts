@@ -47,7 +47,7 @@ const CatalogScreen = () => {
       <Navbar active="Catálogo" />
 
       {/* Catalog hero header */}
-      <section className="carbon" style={{padding: '64px 56px 0', borderBottom: '1px solid var(--line)'}}>
+      <section className="carbon" style={{padding: 'clamp(32px,5vw,64px) clamp(16px,4vw,56px) 0', borderBottom: '1px solid var(--line)'}}>
         <div className="eyebrow" style={{color: 'var(--red)', marginBottom: 14}}>// CATÁLOGO COMPLETO</div>
         <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', marginBottom: 32}}>
           <h1 className="section-title" style={{fontSize: 64}}>Repuestos</h1>
@@ -85,7 +85,7 @@ const CatalogScreen = () => {
       </section>
 
       {/* Main grid */}
-      <section style={{padding: '40px 56px 96px', display: 'grid', gridTemplateColumns: '280px 1fr', gap: 32}}>
+      <section className="rg-sidebar" style={{padding: 'clamp(24px,3vw,40px) clamp(16px,4vw,56px) 80px', gap: 32}}>
         {/* SIDEBAR */}
         <aside style={{position: 'sticky', top: 90, alignSelf: 'flex-start'}}>
           <div style={{padding: 24, border: '1px solid var(--line)', background: 'var(--black-3)'}}>
@@ -222,7 +222,7 @@ const CatalogScreen = () => {
               <p style={{color: 'var(--gray-400)', fontSize: 14}}>Prueba con otros filtros o <a href={waLink('Hola, busco un repuesto específico.')} target="_blank" rel="noopener noreferrer" style={{color: 'var(--green)', textDecoration: 'none'}}>consúltanos por WhatsApp</a>.</p>
             </div>
           ) : (
-            <div style={{display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 20}}>
+            <div className="rg-3" style={{gap: 20}}>
               {sorted.map((p, i) => (
                 <div key={i} className="product">
                   <div className="product-img" onClick={() => window.navigate('product')} style={{cursor: 'pointer'}}>

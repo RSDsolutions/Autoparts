@@ -60,7 +60,7 @@ const ProductScreen = () => {
       </div>
 
       {/* Main detail grid */}
-      <section style={{padding: '56px', display: 'grid', gridTemplateColumns: '1.05fr 1fr', gap: 56}}>
+      <section className="rg-product" style={{padding: 'clamp(24px,4vw,56px)', gap: 'clamp(24px,4vw,56px)'}}>
         {/* IMAGES */}
         <div>
           <div style={{aspectRatio: '1', background: 'var(--black-3)', border: '1px solid var(--line)', position: 'relative', overflow: 'hidden'}}>
@@ -116,7 +116,7 @@ const ProductScreen = () => {
             <span className="plate plate-red" style={{padding: '4px 8px'}}>-24% AHORRO</span>
             <div style={{display: 'flex', alignItems: 'baseline', gap: 4, marginLeft: 8}}>
               <span style={{fontSize: 16, color: 'var(--gray-400)'}}>$</span>
-              <span style={{fontFamily: 'Space Grotesk', fontWeight: 700, fontSize: 64, color: 'white', letterSpacing: '-0.02em', lineHeight: 1}}>
+              <span style={{fontFamily: 'Space Grotesk', fontWeight: 700, fontSize: 'clamp(40px,6vw,64px)', color: 'white', letterSpacing: '-0.02em', lineHeight: 1}}>
                 {product.price.toFixed(2)}
               </span>
               <span className="mono" style={{fontSize: 12, color: 'var(--gray-400)', marginLeft: 6}}>USD · IVA INC.</span>
@@ -201,7 +201,7 @@ const ProductScreen = () => {
           </div>
           <button className="btn btn-ghost" onClick={() => window.navigate('catalog')}>Ver todos →</button>
         </div>
-        <div style={{display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 20}}>
+        <div className="rg-4" style={{gap: 20}}>
           {related.map((p, i) => (
             <div key={i} className="product">
               <div className="product-img" onClick={() => window.navigate('product')} style={{cursor: 'pointer'}}>

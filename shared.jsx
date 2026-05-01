@@ -16,6 +16,7 @@ const Logo = () => (
 );
 
 const Navbar = ({ active = 'Inicio' }) => {
+  const [open, setOpen] = React.useState(false);
   const links = [
     { label: 'Inicio', page: 'home' },
     { label: 'Marcas', page: 'brands' },
@@ -23,25 +24,38 @@ const Navbar = ({ active = 'Inicio' }) => {
     { label: 'Nosotros', page: 'about' },
     { label: 'Contacto', page: 'contact' },
   ];
+  const go = (page) => { setOpen(false); window.navigate(page); };
   return (
-    <nav className="nav">
-      <Logo />
-      <ul className="nav-links">
-        {links.map(l => (
-          <li key={l.label}>
-            <a
-              className={l.label === active ? 'active' : ''}
-              onClick={() => window.navigate(l.page)}
-            >
+    <>
+      <nav className="nav" style={{position: 'sticky', top: 0, zIndex: 50}}>
+        <Logo />
+        <ul className="nav-links">
+          {links.map(l => (
+            <li key={l.label}>
+              <a className={l.label === active ? 'active' : ''} onClick={() => go(l.page)}>{l.label}</a>
+            </li>
+          ))}
+        </ul>
+        <a className="btn btn-red nav-cta" onClick={() => go('catalog')}>
+          Ver Catálogo <span style={{fontSize: 14}}>→</span>
+        </a>
+        <button className={`nav-burger${open ? ' open' : ''}`} onClick={() => setOpen(!open)} aria-label="Menú">
+          <span></span><span></span><span></span>
+        </button>
+      </nav>
+      {open && (
+        <div className="nav-mobile" style={{zIndex: 49}}>
+          {links.map(l => (
+            <a key={l.label} className={l.label === active ? 'active' : ''} onClick={() => go(l.page)}>
               {l.label}
             </a>
-          </li>
-        ))}
-      </ul>
-      <a className="btn btn-red" onClick={() => window.navigate('catalog')}>
-        Ver Catálogo <span style={{fontSize: 14}}>→</span>
-      </a>
-    </nav>
+          ))}
+          <a className="btn btn-red nav-mobile-cta" onClick={() => go('catalog')} style={{marginTop: 32, justifyContent: 'center'}}>
+            Ver Catálogo →
+          </a>
+        </div>
+      )}
+    </>
   );
 };
 

@@ -34,7 +34,7 @@ const AboutScreen = () => {
 
       {/* STORY SECTION */}
       <section className="section" style={{padding: '110px 56px'}}>
-        <div style={{display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 64, alignItems: 'center'}}>
+        <div className="rg-halves" style={{gap: 'clamp(32px,5vw,64px)', alignItems: 'center'}}>
           <div>
             <div className="eyebrow" style={{color: 'var(--red)', marginBottom: 14}}>// NUESTRA HISTORIA</div>
             <h2 className="section-title" style={{fontSize: 56, marginBottom: 32}}>Del taller<br/>al catálogo</h2>
@@ -102,7 +102,7 @@ const AboutScreen = () => {
           <h2 className="section-title" style={{fontSize: 56}}>Cuatro reglas, cero excepciones</h2>
         </div>
 
-        <div style={{display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 16}}>
+        <div className="rg-4" style={{gap: 16}}>
           {[
             { n: '01', t: 'Solo OEM y marcas certificadas', d: 'Nada de chinos sin marca. Trabajamos con Mando, Hyundai-Mobis, ACDelco, Bosch, NGK y proveedores OEM de Corea.' },
             { n: '02', t: 'Stock real verificado', d: 'Lo que ves en la web es lo que está en la bodega. Si dice IN STOCK, sale hoy. Sin promesas vacías.' },
@@ -121,7 +121,7 @@ const AboutScreen = () => {
 
       {/* STATS BAR */}
       <section style={{background: 'var(--black-2)', padding: '72px 56px', borderTop: '1px solid var(--line)', borderBottom: '1px solid var(--line)'}}>
-        <div style={{display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 0}}>
+        <div className="rg-stats" style={{gap: 0}}>
           {[
             { num: '10+', l: 'Años en el mercado', accent: true },
             { num: '238', l: 'Repuestos en stock' },
@@ -132,7 +132,7 @@ const AboutScreen = () => {
               <div className="mono" style={{fontSize: 11, color: s.accent ? 'var(--red)' : 'var(--gray-500)', letterSpacing: '0.18em', marginBottom: 12}}>
                 // {(i+1).toString().padStart(2,'0')}
               </div>
-              <div style={{fontFamily: 'Space Grotesk', fontWeight: 700, fontSize: 96, color: 'white', letterSpacing: '-0.03em', lineHeight: 1, marginBottom: 16}}>
+              <div className="stat-num" style={{fontFamily: 'Space Grotesk', fontWeight: 700, fontSize: 'clamp(48px,8vw,96px)', color: 'white', letterSpacing: '-0.03em', lineHeight: 1, marginBottom: 16}}>
                 {s.num}
               </div>
               <div style={{fontSize: 13, color: 'var(--gray-300)', textTransform: 'uppercase', letterSpacing: '0.12em', fontFamily: 'Space Grotesk', fontWeight: 500}}>
@@ -155,7 +155,7 @@ const AboutScreen = () => {
           </p>
         </div>
 
-        <div style={{display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 20}}>
+        <div className="rg-3" style={{gap: 20}}>
           {[
             { name: 'Edison Quintero', role: 'Maestro mecánico · Co-fundador', tag: '30 años de oficio', color: '#E31E24', initials: 'EQ' },
             { name: 'Carolina Vargas', role: 'Logística & atención al cliente', tag: 'Habla coreano básico', color: '#0257B4', initials: 'CV' },

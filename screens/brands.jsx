@@ -66,11 +66,11 @@ const BrandsScreen = () => {
       </section>
 
       {/* BRAND CARDS */}
-      <section style={{padding: '80px 56px', display: 'flex', flexDirection: 'column', gap: 80}}>
+      <section style={{padding: 'clamp(32px,5vw,80px) clamp(16px,4vw,56px)', display: 'flex', flexDirection: 'column', gap: 'clamp(40px,6vw,80px)'}}>
         {brands.map((b, idx) => (
           <div key={b.name}>
             {/* Big card */}
-            <div style={{
+            <div className="brand-hero-card" style={{
               border: '1px solid var(--line-2)', background: 'var(--black-3)', padding: 0,
               display: 'grid',
               gridTemplateColumns: idx % 2 === 0 ? '1.2fr 1fr' : '1fr 1.2fr',
@@ -104,7 +104,7 @@ const BrandsScreen = () => {
               </div>
 
               {/* Right showcase */}
-              <div style={{
+              <div className="brand-showcase" style={{
                 background: 'var(--black-2)', position: 'relative', overflow: 'hidden',
                 order: idx % 2 === 0 ? 2 : 1,
                 borderLeft: idx % 2 === 0 ? '1px solid var(--line)' : 'none',
@@ -132,7 +132,7 @@ const BrandsScreen = () => {
                 <div className="eyebrow">Categorías {b.name}</div>
                 <span className="mono" style={{fontSize: 11, color: 'var(--gray-500)', letterSpacing: '0.12em'}}>06 SECCIONES</span>
               </div>
-              <div style={{display: 'grid', gridTemplateColumns: 'repeat(6, 1fr)', gap: 12}}>
+              <div className="rg-6" style={{gap: 12}}>
                 {cats.map(c => (
                   <div key={c.name} onClick={() => window.navigate('catalog')} style={{
                     background: 'var(--black-3)', border: '1px solid var(--line)',
@@ -157,7 +157,7 @@ const BrandsScreen = () => {
             </div>
 
             {/* Featured products for brand */}
-            <div style={{marginTop: 28, display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 16}}>
+            <div className="rg-4" style={{marginTop: 28, gap: 16}}>
               {[
                 { name: `Pastillas freno ${b.name === 'KIA' ? 'Sportage' : b.name === 'HYUNDAI' ? 'Tucson' : 'Sail'}`, kind: 'brake', price: (40 + idx * 8) },
                 { name: `Filtro de aire ${b.models[0]}`, kind: 'filter', price: (22 + idx * 3) },
