@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Quito Auto Parts — Repuestos para Kia, Hyundai y Chevrolet en Quito</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Especialistas en repuestos OEM para Kia, Hyundai y Chevrolet en Quito, Ecuador. Calidad garantizada, entrega express 24h y asesoría técnica por WhatsApp.">
+  <meta name="theme-color" content="#121414">
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+  <style>
+    body { margin: 0; background: #121414; }
+    #root { min-height: 100vh; }
+    #loading {
+      position: fixed; inset: 0; background: #121414;
+      display: flex; align-items: center; justify-content: center;
+      flex-direction: column; gap: 20px; z-index: 999;
+      font-family: 'Space Grotesk', sans-serif;
+    }
+    .loading-mark {
+      width: 48px; height: 48px; background: #E31E24;
+      position: relative; animation: pulse 1s ease-in-out infinite;
+    }
+    @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.5} }
+  </style>
+</head>
+<body>
+<div id="loading">
+  <div class="loading-mark"></div>
+  <span style="color:#555;font-size:12px;letter-spacing:0.3em;font-family:monospace">CARGANDO...</span>
+</div>
+<div id="root"></div>
+
+<script type="text/babel" src="shared.jsx"></script>
+<script type="text/babel" src="screens/home.jsx"></script>
+<script type="text/babel" src="screens/catalog.jsx"></script>
+<script type="text/babel" src="screens/product.jsx"></script>
+<script type="text/babel" src="screens/brands.jsx"></script>
+<script type="text/babel" src="screens/about.jsx"></script>
+<script type="text/babel" src="screens/contact.jsx"></script>
+
+<script type="text/babel" data-presets="react">
+const PAGES = {
+  home: () => <HomeScreen />,
+  catalog: () => <CatalogScreen />,
+  product: () => <ProductScreen />,
+  brands: () => <BrandsScreen />,
+  about: () => <AboutScreen />,
+  contact: () => <ContactScreen />,
+};
+
+const getPage = () => {
+  const hash = window.location.hash.replace('#', '').trim();
+  return PAGES[hash] ? hash : 'home';
+};
+
+const App = () => {
+  const [page, setPage] = React.useState(getPage());
+
+  React.useEffect(() => {
+    // Expose navigate globally so all components can call window.navigate(page)
+    window.navigate = (p) => {
+      if (!PAGES[p]) return;
+      window.location.hash = p;
+      setPage(p);
+      window.scrollTo({ top: 0, behavior: 'instant' });
+    };
+
+    const onHashChange = () => setPage(getPage());
+    window.addEventListener('hashchange', onHashChange);
+    return () => window.removeEventListener('hashchange', onHashChange);
+  }, []);
+
+  React.useEffect(() => {
+    // Hide loading screen once React has painted
+    const el = document.getElementById('loading');
+    if (el) el.style.display = 'none';
+  }, []);
+
+  const PageComponent = PAGES[page];
+  return <PageComponent />;
+};
+
+ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+</script>
+</body>
+</html>
