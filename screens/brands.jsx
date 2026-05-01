@@ -42,7 +42,7 @@ const BrandsScreen = () => {
       <Navbar active="Marcas" />
 
       {/* HERO */}
-      <section className="carbon" style={{padding: '120px 56px 96px', position: 'relative', overflow: 'hidden'}}>
+      <section className="carbon" style={{padding: 'clamp(60px,9vw,120px) clamp(16px,4vw,56px) clamp(48px,7vw,96px)', position: 'relative', overflow: 'hidden'}}>
         <HeroBg />
         <div style={{position: 'relative', zIndex: 2, maxWidth: 1100}}>
           <div className="eyebrow" style={{color: 'var(--red)', marginBottom: 18}}>// 03 MARCAS · 238 REFERENCIAS</div>
@@ -76,7 +76,7 @@ const BrandsScreen = () => {
               gridTemplateColumns: idx % 2 === 0 ? '1.2fr 1fr' : '1fr 1.2fr',
               minHeight: 380, position: 'relative', overflow: 'hidden',
             }}>
-              <div style={{padding: '56px', display: 'flex', flexDirection: 'column', order: idx % 2 === 0 ? 1 : 2, position: 'relative'}}>
+              <div style={{padding: 'clamp(24px,4vw,56px)', display: 'flex', flexDirection: 'column', order: idx % 2 === 0 ? 1 : 2, position: 'relative'}}>
                 <div className="tape-corner tape-tl" style={{borderColor: b.color}}></div>
                 <div style={{display: 'flex', alignItems: 'center', gap: 18, marginBottom: 28}}>
                   <BrandBadge brand={b.name.charAt(0) + b.name.slice(1).toLowerCase()} size={72}/>

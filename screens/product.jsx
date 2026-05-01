@@ -193,7 +193,7 @@ const ProductScreen = () => {
       </section>
 
       {/* RELATED */}
-      <section className="section carbon-tight" style={{padding: '80px 56px'}}>
+      <section className="section carbon-tight" style={{padding: 'clamp(40px,6vw,80px) clamp(16px,4vw,56px)'}}>
         <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', marginBottom: 32}}>
           <div>
             <div className="eyebrow" style={{color: 'var(--red)', marginBottom: 12}}>// COMPLEMENTARIOS</div>

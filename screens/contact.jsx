@@ -16,7 +16,7 @@ const ContactScreen = () => {
       <Navbar active="Contacto" />
 
       {/* Header */}
-      <section className="carbon" style={{padding: '80px 56px 60px', borderBottom: '1px solid var(--line)', position: 'relative', overflow: 'hidden'}}>
+      <section className="carbon" style={{padding: 'clamp(40px,6vw,80px) clamp(16px,4vw,56px) clamp(32px,5vw,60px)', borderBottom: '1px solid var(--line)', position: 'relative', overflow: 'hidden'}}>
         <div className="eyebrow" style={{color: 'var(--red)', marginBottom: 14}}>// HABLEMOS</div>
         <h1 style={{fontSize: 88, lineHeight: 0.95, letterSpacing: '-0.02em', textTransform: 'uppercase', fontWeight: 700}}>
           Contacto
@@ -130,7 +130,7 @@ const ContactScreen = () => {
 
         {/* RIGHT - FORM */}
         <div>
-          <div style={{border: '1px solid var(--line-2)', background: 'var(--black-3)', padding: 40, position: 'relative'}}>
+          <div style={{border: '1px solid var(--line-2)', background: 'var(--black-3)', padding: 'clamp(20px,4vw,40px)', position: 'relative'}}>
             <div className="tape-corner tape-tl"></div>
             <div className="tape-corner tape-tr"></div>
 
@@ -208,13 +208,13 @@ const ContactScreen = () => {
                   Acepto la <span style={{color: 'white', textDecoration: 'underline', cursor: 'pointer', marginLeft: 4}}>política de privacidad</span> y autorizo el contacto comercial.
                 </label>
 
-                <div style={{display: 'grid', gridTemplateColumns: '1fr auto', gap: 12}}>
-                  <button type="submit" className="btn btn-red" style={{padding: '20px', fontSize: 13}}>
+                <div className="form-submit-row">
+                  <button type="submit" className="btn btn-red" style={{padding: '18px', fontSize: 13}}>
                     Enviar cotización →
                   </button>
                   <a href={waLink('Hola, quiero cotizar un repuesto.')} target="_blank" rel="noopener noreferrer"
-                     className="btn btn-wa" style={{padding: '20px 28px', fontSize: 13}}>
-                    <WAIcon size={18}/> O por WhatsApp
+                     className="btn btn-wa" style={{padding: '18px 20px', fontSize: 13}}>
+                    <WAIcon size={18}/> WhatsApp
                   </a>
                 </div>
 

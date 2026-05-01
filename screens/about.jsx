@@ -6,7 +6,7 @@ const AboutScreen = () => {
       <Navbar active="Nosotros" />
 
       {/* HERO */}
-      <section className="carbon" style={{padding: '120px 56px', position: 'relative', overflow: 'hidden', minHeight: 520}}>
+      <section className="carbon" style={{padding: 'clamp(60px,9vw,120px) clamp(16px,4vw,56px)', position: 'relative', overflow: 'hidden', minHeight: 520}}>
         <HeroBg />
         <svg viewBox="0 0 1600 600" preserveAspectRatio="xMidYMid slice"
              style={{position: 'absolute', inset: 0, width: '100%', height: '100%', opacity: 0.12, pointerEvents: 'none'}}>
@@ -33,7 +33,7 @@ const AboutScreen = () => {
       </section>
 
       {/* STORY SECTION */}
-      <section className="section" style={{padding: '110px 56px'}}>
+      <section className="section" style={{padding: 'clamp(48px,8vw,110px) clamp(16px,4vw,56px)'}}>
         <div className="rg-halves" style={{gap: 'clamp(32px,5vw,64px)', alignItems: 'center'}}>
           <div>
             <div className="eyebrow" style={{color: 'var(--red)', marginBottom: 14}}>// NUESTRA HISTORIA</div>
@@ -96,7 +96,7 @@ const AboutScreen = () => {
       </section>
 
       {/* WHY US 4 cards */}
-      <section className="section carbon-tight" style={{padding: '110px 56px'}}>
+      <section className="section carbon-tight" style={{padding: 'clamp(48px,8vw,110px) clamp(16px,4vw,56px)'}}>
         <div style={{textAlign: 'center', marginBottom: 64}}>
           <div className="eyebrow" style={{color: 'var(--red)', marginBottom: 14}}>// LO QUE NOS HACE DIFERENTES</div>
           <h2 className="section-title" style={{fontSize: 56}}>Cuatro reglas, cero excepciones</h2>
@@ -120,7 +120,7 @@ const AboutScreen = () => {
       </section>
 
       {/* STATS BAR */}
-      <section style={{background: 'var(--black-2)', padding: '72px 56px', borderTop: '1px solid var(--line)', borderBottom: '1px solid var(--line)'}}>
+      <section style={{background: 'var(--black-2)', padding: 'clamp(36px,6vw,72px) clamp(16px,4vw,56px)', borderTop: '1px solid var(--line)', borderBottom: '1px solid var(--line)'}}>
         <div className="rg-stats" style={{gap: 0}}>
           {[
             { num: '10+', l: 'Años en el mercado', accent: true },
@@ -144,7 +144,7 @@ const AboutScreen = () => {
       </section>
 
       {/* TEAM */}
-      <section className="section" style={{padding: '110px 56px'}}>
+      <section className="section" style={{padding: 'clamp(48px,8vw,110px) clamp(16px,4vw,56px)'}}>
         <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', marginBottom: 56}}>
           <div>
             <div className="eyebrow" style={{color: 'var(--red)', marginBottom: 14}}>// EQUIPO</div>

@@ -17,7 +17,7 @@ const HomeScreen = () => {
       <Navbar active="Inicio" />
 
       {/* HERO */}
-      <section style={{position: 'relative', minHeight: 520, overflow: 'hidden', padding: '120px 56px 80px'}} className="carbon">
+      <section style={{position: 'relative', minHeight: 520, overflow: 'hidden', padding: 'clamp(60px,9vw,120px) clamp(16px,4vw,56px) clamp(40px,6vw,80px)'}} className="carbon">
         <HeroBg />
 
         <div style={{position: 'relative', zIndex: 2}}>
